@@ -32,7 +32,7 @@
   text-align: center;
 }
 .swiper-pagination-bullet {
-  background-color: var(--main-color);
+  background-color: var(--secodary-color);
   transition: 0.5s;
 }
 .swiper-pagination-bullet-active {
@@ -46,7 +46,7 @@
 #hero:before {
   content: "";
   position: absolute;
-  background-color: var(--main-color);
+  background-color: var(--secodary-color);
   bottom: 0;
   top: 0;
   left: 0;
@@ -100,7 +100,7 @@
 }
 
 /*----------------------------------------------------------------------------- */
-@media (min-width: 318px) and (max-width: 480px) {
+@media (min-width: 318px) and (max-width: 500px) {
  .banner-frame {
   font-size: 10px;
  }

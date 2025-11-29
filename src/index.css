@@ -42,9 +42,11 @@
 }
 
 :root {
-  --main-color: #0095da;
+  --main-color: #009747;
+  --secodary-color: #303030;
+  --soft-main-color: #4caf50;
   --main-soft-color: #deedff;
-  --accent-color: orange;
+  --accent-color: #ff6e00;
   --sub-secondary-color: #303030;
   --font-color: #303030;
   --white-color: #FFF;
@@ -138,7 +140,7 @@ body {
   font-size: 16px;
   font-family: "Lato", sans-serif;
   color: var(--font-color);
-  background-color: var(--sub-secondary-color);
+  background-color: var(--white-color);
   position: relative;
 }
 
@@ -184,17 +186,6 @@ select {
   outline: none;
 }
 
-/* input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-text-fill-color: var(--secondary-color);
-  -webkit-transition: background-color 5000s ease-in-out 0s;
-  transition: background-color 5000s ease-in-out 0s;
-  box-shadow: 0 none;
-  caret-color: var(--secondary-color);
-}  */
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -203,13 +194,13 @@ select:-webkit-autofill {
   -webkit-text-fill-color: var(--font-color) !important;
   caret-color: var(--font-color) !important;
   -webkit-box-shadow:
-    0 0 0 1000px color-mix(in oklab, var(--main-color) 7%, white) inset,
-    0 0 0 1px color-mix(in oklab, var(--main-color) 25%, transparent) inset !important;
+    0 0 0 1000px color-mix(in oklab, var(--secodary-color) 7%, white) inset,
+    0 0 0 1px color-mix(in oklab, var(--secodary-color) 25%, transparent) inset !important;
           box-shadow:
-    0 0 0 1000px color-mix(in oklab, var(--main-color) 7%, white) inset,
-    0 0 0 1px color-mix(in oklab, var(--main-color) 25%, transparent) inset !important;
+    0 0 0 1000px color-mix(in oklab, var(--secodary-color) 7%, white) inset,
+    0 0 0 1px color-mix(in oklab, var(--secodary-color) 25%, transparent) inset !important;
 
-  border: 1px solid color-mix(in oklab, var(--main-color) 25%, white) !important;
+  border: 1px solid color-mix(in oklab, var(--secodary-color) 25%, white) !important;
 }
 
 input::selection,

@@ -3,8 +3,9 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { AuthProvider } from '@/auth/AuthContext';
 import { Toaster } from 'sonner';
+import { ApolloProvider } from "@apollo/client/react";
+import apolloClient from "./service/graphql/apollo-client";
 
 import { handleChunkLoadError } from './utils/errorHandling.ts';
 
@@ -27,8 +28,8 @@ handleChunkLoadError();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AuthProvider>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <ApolloProvider client={apolloClient}>
         <App />
         <div className='w-[320px]'>
           <Toaster
@@ -39,7 +40,7 @@ createRoot(document.getElementById('root')!).render(
             closeButton
           />
         </div>
-      </QueryClientProvider>
-    </AuthProvider>
+      </ApolloProvider>
+    </QueryClientProvider>
   </StrictMode>,
 )

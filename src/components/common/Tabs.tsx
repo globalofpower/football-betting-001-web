@@ -27,7 +27,7 @@ const Tabs: React.FC<TabsProps> = ({ type, setType, tabs, tabType}) => {
         role="tablist"
       >
         <span
-          className="absolute inset-0 left-0 rounded-md bg-[var(--main-color)]
+          className="absolute inset-0 left-0 rounded-md bg-[var(--secodary-color)]
                     transition-transform duration-300 ease-out will-change-transform"
           style={{
             width: `${tabWidth}%`,

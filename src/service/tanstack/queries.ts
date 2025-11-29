@@ -88,16 +88,6 @@ export const SETTING_QUERY = () => {
   });
 };
 
-export const MATCHES_QUERY = ({isHalf,isParlay}:any) => {
-  return useQuery({
-    queryKey: ["matches",isHalf,isParlay],
-    queryFn: () => fetchFixtureService({isHalf,isParlay}),
-    enabled: true,
-    gcTime: 0, 
-    staleTime: 0,
-    networkMode: 'offlineFirst',
-  });
-};
 
 export const GOALS_QUERY:any = (payload:any) => {
   return useQuery({

@@ -26,9 +26,9 @@ export function CustomDialogBox({open, setOpen, label, children,isCancelButton =
               isCancelButton ?
               <div className="flex w-full gap-3">
                 <Button className="cursor-pointer w-1/2 py-5" onClick={() => setOpen(false)}>{langChange.cancel}</Button>
-                <Button className="cursor-pointer w-1/2 py-5 bg-[var(--main-color)] hover:bg-[var(--main-color)]" onClick={event}>{langChange.confirm}</Button>
+                <Button className="cursor-pointer w-1/2 py-5 bg-[var(--secodary-color)] hover:bg-[var(--secodary-color)]" onClick={event}>{langChange.confirm}</Button>
               </div>:
-              <Button className="cursor-pointer w-full py-5 bg-[var(--main-color)] hover:bg-[var(--main-color)]" onClick={() => setOpen(false)}>{langChange.confirm}</Button>
+              <Button className="cursor-pointer w-full py-5 bg-[var(--secodary-color)] hover:bg-[var(--secodary-color)]" onClick={() => setOpen(false)}>{langChange.confirm}</Button>
             }
           </DialogFooter>
         </DialogContent>

@@ -1,30 +1,23 @@
 import { create } from 'zustand';
+import { oddsSlice } from './slices/oddsSlice';
 import { langSlice } from './slices/langSlice';
 import { allLeaguesSlice } from './slices/allLeaguesSlice';
-import { searchMatchSlice } from './slices/searchMatchSlice';
-import { totalMatchSlice } from './slices/totalMatchSlice';
 import { filterLeaguesSlice } from './slices/filterLeaguesSlice';
+import { searchMatchSlice } from './slices/searchMatchSlice';
 import { sortByTypeSlice } from './slices/sortByTypeSlice';
 import { refetchSlice } from './slices/refetchSlice';
 import { betSlice } from './slices/betSlice';
-import { authInfoSlice } from './slices/authInfoSlice';
-import { settingSlice } from './slices/settingSlice';
-import { otpInfoSlice } from './slices/otpInfoSlice';
-import { dateSlice } from './slices/dateSlice';
+
 
 export const useCombineStore = create<any>()(
       (set, _get, _api) => ({
         ...langSlice(set),
-        ...refetchSlice(set),
+        ...oddsSlice(set),
         ...allLeaguesSlice(set),
-        ...searchMatchSlice(set),
-        ...totalMatchSlice(set),
         ...filterLeaguesSlice(set),
+        ...searchMatchSlice(set),
         ...sortByTypeSlice(set),
+        ...refetchSlice(set),
         ...betSlice(set),
-        ...authInfoSlice(set),
-        ...settingSlice(set),
-         ...otpInfoSlice(set),
-         ...dateSlice(set),
       }),
 );

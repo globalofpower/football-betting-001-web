@@ -14,7 +14,7 @@ const Pagination = ({page,setPage,meta}:any) => {
                     "h-8 rounded-md px-3 text-sm transition",
                     page <= meta.first_page
                         ? "bg-white/40 text-zinc-400 cursor-not-allowed"
-                        : "bg-[var(--main-color)] text-[var(--white-color)] "
+                        : "bg-[var(--secodary-color)] text-[var(--white-color)] "
                     )}
                 >
                     ‹ Prev
@@ -33,7 +33,7 @@ const Pagination = ({page,setPage,meta}:any) => {
                     "h-8 rounded-md px-3 text-sm transition",
                     page >= meta.last_page
                         ? "bg-white/40 text-zinc-400 cursor-not-allowed"
-                        : "bg-[var(--main-color)] text-[var(--white-color)]"
+                        : "bg-[var(--secodary-color)] text-[var(--white-color)]"
                     )}
                 >
                     Next ›

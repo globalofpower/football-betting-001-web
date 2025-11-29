@@ -1,22 +1,22 @@
 import dayjs from "dayjs";
-import { clearAuth } from "./auth-storage";
+import clickSong from '@/assets/songs/click.mp3';
 
 export const replaceZeotoQqual = (str:any) => {
   if(str?.includes('+')){
       let splitVal = str.split("+");
       if(splitVal[0] === "0"){
-          splitVal[0] = "="
+          splitVal[0] = " ="
       }else{
           splitVal[0] = `${splitVal[0]}`;
       };
       if(splitVal[1] === "0"){
-          splitVal[1] = "="
+          splitVal[1] = " ="
       }else{
           const length = splitVal[1]?.length;
           if (length <= 1) {
-            splitVal[1] = `+0${splitVal[1]}`;
+            splitVal[1] = ` +0${splitVal[1]}`;
           } else {
-            splitVal[1] = `+${splitVal[1]}`;
+            splitVal[1] = ` +${splitVal[1]}`;
           }
       };
       return splitVal;
@@ -33,9 +33,9 @@ export const replaceZeotoQqual = (str:any) => {
       }else{
         const length = splitVal[1]?.length;
         if (length <= 1) {
-          splitVal[1] = `0${splitVal[1]}`;
+          splitVal[1] = ` 0${splitVal[1]}`;
         } else {
-          splitVal[1] = `${splitVal[1]}`;
+          splitVal[1] = ` ${splitVal[1]}`;
         }
       };
       return splitVal;
@@ -43,18 +43,18 @@ export const replaceZeotoQqual = (str:any) => {
   if(str?.includes('-')){
       let splitVal = str.split("-");
       if(splitVal[0] === "0"){
-          splitVal[0] = "="
+          splitVal[0] = " ="
       }else{
           splitVal[0] = `${splitVal[0]}`;
       };
       if(splitVal[1] === "0"){
-          splitVal[1] = "="
+          splitVal[1] = " ="
       }else{
         const length = splitVal[1]?.length;
         if (length <= 1) {
-          splitVal[1] = `-0${splitVal[1]}`;
+          splitVal[1] = ` -0${splitVal[1]}`;
         } else {
-          splitVal[1] = `-${splitVal[1]}`;
+          splitVal[1] = ` -${splitVal[1]}`;
         }
       };
       return splitVal;
@@ -164,16 +164,15 @@ export const changeTimeAgo = (dateTime:any) => {
   }
 };
 
-// export const matchClickEffect = () => {
-//   const audio = new Audio();
-//   audio.src = matchSong;
-//   audio.play();
-// }
+export const clickSongEffect = () => {
+  const audio = new Audio();
+  audio.src = clickSong;
+  audio.play();
+};
 
 export const isAuthenticated = (message:any) => {
     const errorMessages = ["Not authenticated", "Invalid token", "Unauthorized token", "Not Authorised!"];
     if (errorMessages.some(msg => message?.includes(msg))) {
-       clearAuth();
        window.location.href = "/auth/login";
     };
 }

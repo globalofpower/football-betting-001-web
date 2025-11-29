@@ -34,8 +34,8 @@ const TextInput:React.FC<TextInputProps> = ({ control, name, label, placeholder,
                     <Input
                         type={type}
                         placeholder={placeholder}
-                        className={`bg-[var(--main-color)]/5 border-[var(--main-color)]/15 text-[var(--font-color)] placeholder:text-[var(--font-color)]/40 
-                            focus-visible:ring-2 focus-visible:!ring-[color:var(--main-color)]/80 focus-visible:!border-transparent  selection:!bg-[var(--main-color)]/30 selection:text-current
+                        className={`bg-[var(--secodary-color)]/5 border-[var(--secodary-color)]/15 text-[var(--font-color)] placeholder:text-[var(--font-color)]/40 
+                            focus-visible:ring-2 focus-visible:!ring-[color:var(--secodary-color)]/80 focus-visible:!border-transparent  selection:!bg-[var(--secodary-color)]/30 selection:text-current
                             ${className}`}
                         {...field}
                     />
@@ -66,9 +66,9 @@ const TextareaInput:React.FC<TextAreaProps> = ({control,name,value, label, place
                                         className={cn(
                                         "w-full rounded-md px-3 py-2",
                                         "bg-[var(--white-color)] text-[var(--font-color)]",
-                                        "border border-[var(--main-color)]/30",
+                                        "border border-[var(--secodary-color)]/30",
                                         "placeholder:text-[var(--font-color)]/40",
-                                        "focus-visible:ring-2 focus-visible:ring-[color:var(--main-color)]/80 focus-visible:border-transparent",
+                                        "focus-visible:ring-2 focus-visible:ring-[color:var(--secodary-color)]/80 focus-visible:border-transparent",
                                         "resize-none h-36 overflow-auto",
                                         disabled && "opacity-60 cursor-not-allowed", // ✅ visual state
                                         className
@@ -102,8 +102,8 @@ const PasswordInput:React.FC<PasswordInputProps> = ({ control, name, label, plac
                             <Input
                                 type={show ? "text" : "password"}
                                 placeholder={placeholder}
-                                className={`bg-[var(--main-color)]/5 border-[var(--main-color)]/15 text-[var(--font-color)] placeholder:text-[var(--font-color)]/40 
-                                    focus-visible:ring-2 focus-visible:!ring-[color:var(--main-color)]/80 focus-visible:!border-transparent selection:!bg-[var(--main-color)]/30 selection:text-current
+                                className={`bg-[var(--secodary-color)]/5 border-[var(--secodary-color)]/15 text-[var(--font-color)] placeholder:text-[var(--font-color)]/40 
+                                    focus-visible:ring-2 focus-visible:!ring-[color:var(--secodary-color)]/80 focus-visible:!border-transparent selection:!bg-[var(--secodary-color)]/30 selection:text-current
                                      ${className}`}
                                 {...field}
                             />
@@ -167,10 +167,10 @@ const PhoneOtpInput:React.FC<PhoneOtpInputProps> = ({
                     {/* input ကို button နဲ့မထိခိုက်အောင် right padding ပိုထား */}
                     <Input
                         placeholder={placeholder}
-                        className={`pr-28 bg-[var(--main-color)]/5 border-[var(--main-color)]/15 
+                        className={`pr-28 bg-[var(--secodary-color)]/5 border-[var(--secodary-color)]/15 
                                     text-[var(--font-color)] placeholder:text-[var(--font-color)]/40 
-                                    focus-visible:ring-2 focus-visible:!ring-[color:var(--main-color)]/80 
-                                    focus-visible:!border-transparent selection:!bg-[var(--main-color)]/30 selection:text-current ${className}`}
+                                    focus-visible:ring-2 focus-visible:!ring-[color:var(--secodary-color)]/80 
+                                    focus-visible:!border-transparent selection:!bg-[var(--secodary-color)]/30 selection:text-current ${className}`}
                         {...field}
                     />
 
@@ -188,7 +188,7 @@ const PhoneOtpInput:React.FC<PhoneOtpInputProps> = ({
                         }}
                         disabled={!canRequest(field.value) || sending || left > 0}
                         className="absolute right-0 top-1/2 -translate-y-1/2 h-10 px-3 rounded-md
-                                bg-[var(--main-color)] text-white text-xs font-semibold
+                                bg-[var(--secodary-color)] text-white text-xs font-semibold
                                 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                         {sending
@@ -250,10 +250,10 @@ const DropdownInput: React.FC<DropdownInputProps> = ({
                                 type="button"
                                 disabled={disabled}
                                 className={`h-10 w-full rounded-md px-3 text-left
-                                            bg-[var(--main-color)]/5 border border-[var(--main-color)]/15
+                                            bg-[var(--secodary-color)]/5 border border-[var(--secodary-color)]/15
                                             text-[var(--font-color)] placeholder:text-[var(--font-color)]/40
                                             focus-visible:outline-none focus-visible:ring-2
-                                            focus-visible:ring-[color:var(--main-color)]/80
+                                            focus-visible:ring-[color:var(--secodary-color)]/80
                                             focus-visible:border-transparent
                                             disabled:cursor-not-allowed disabled:opacity-60
                                             relative flex items-center justify-between ${className}`}
@@ -273,7 +273,7 @@ const DropdownInput: React.FC<DropdownInputProps> = ({
                             align="center"
                             avoidCollisions={false}
                             className="w-[var(--radix-popover-trigger-width)] 
-                                        p-0 bg-white border border-[var(--main-color)]/20 
+                                        p-0 bg-white border border-[var(--secodary-color)]/20 
                                         shadow-xl rounded-md
                                         max-h-[min(60vh,24rem)] overflow-y-auto"
                         >
@@ -283,7 +283,7 @@ const DropdownInput: React.FC<DropdownInputProps> = ({
                                     autoFocus placeholder="Search…" value={query}
                                     onChange={(e) => setQuery(e.target.value)}
                                     className="w-full h-9 rounded-md px-3
-                                            bg-[var(--main-color)]/5 border border-none
+                                            bg-[var(--secodary-color)]/5 border border-none
                                             text-[var(--font-color)] placeholder:text-[var(--font-color)]/40
                                             focus:outline-none"
                                 />
@@ -307,7 +307,7 @@ const DropdownInput: React.FC<DropdownInputProps> = ({
                                                 setQuery("");
                                             }}
                                             className={`flex items-center gap-2 px-3 py-2 cursor-pointer
-                                                        hover:bg-[var(--main-color)]/10`}
+                                                        hover:bg-[var(--secodary-color)]/10`}
                                         >
                                             <span className={`shrink-0 ${isSel ? "opacity-100" : "opacity-0"}`}>
                                                 <Check size={16} />
@@ -376,10 +376,10 @@ const OtpCodeInput: React.FC<OtpCodeInputProps> = ({
                       className="
                         h-10 w-10
                         !rounded-md
-                        bg-[var(--main-color)]/5
-                        border !border-[var(--main-color)]/15
+                        bg-[var(--secodary-color)]/5
+                        border !border-[var(--secodary-color)]/15
                         text-[var(--font-color)] text-lg font-medium
-                        data-[active=true]:ring-2 data-[active=true]:ring-[color:var(--main-color)]/80
+                        data-[active=true]:ring-2 data-[active=true]:ring-[color:var(--secodary-color)]/80
                         
                       "
                     />
