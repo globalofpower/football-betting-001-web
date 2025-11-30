@@ -1,5 +1,5 @@
 import { useLazyQuery, useQuery } from '@apollo/client/react';
-import { GET_FIXTURES_DATA } from './queries';
+import { GET_FIXTURES_DATA, GET_TAX_PERCENT_DATA } from './queries';
 import { useCombineStore } from '@/store';
 
 export const GET_USER_INFO_SERVICE = (query:any,id:any) => {
@@ -163,3 +163,13 @@ export const GET_GOALS_DATA_SERVICE = (query:any,id:any) => {
         fetchPolicy: 'network-only'
     });
 }
+
+export const FetchTaxPercent = ({payload,pollInterval=0,isLazy= false}:any) => {
+  let result = FetchGraphQL({
+      query: GET_TAX_PERCENT_DATA,
+      variables: payload,
+      pollInterval: pollInterval,
+      isLazy,
+  })
+  return result;
+};

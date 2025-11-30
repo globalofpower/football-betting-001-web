@@ -1,10 +1,14 @@
+import Loader from "../common/Loader";
 import NoData from "../common/NoData";
 import MatchCard from "../football/MatchCard"
 import useFootballMatches from "../hooks/useFootballMatches";
 
 const Parlay = () => {
-   const { loading, matches } = useFootballMatches({isHalf: false, isParlay: true});
-  
+  const { loading, matches } = useFootballMatches({isHalf: false, isParlay: true});
+
+  if(loading){
+    return <Loader />;
+  };
   return (
     <div className="p-3">
       {

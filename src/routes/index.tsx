@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import { 
+    BetConfirmPage,
     BodyPage,
     ParlayPage,
 } from "./routes";
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
         children: [
             { path: '/body', Component: BodyPage },
             { path: '/parlay', Component: ParlayPage },
+            { path: ':type/bet-confirm', Component: BetConfirmPage },
         ],
     },
 ]);

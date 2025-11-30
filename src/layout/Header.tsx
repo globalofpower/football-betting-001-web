@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { useLocation } from 'react-router';
 import classes from '@/assets/styles/Header.module.css';
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from "@/components/ui/input-group"
+import { clickSongEffect } from '@/utils/Helper';
 
 const Header = () => {
   const [openFilterModal,setOpenFilterModal] = useState(false);
@@ -36,7 +37,8 @@ const Header = () => {
   const refetchHandler = (e:React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setRotateEff(true);
-    refetchValue?.()
+    refetchValue?.();
+    clickSongEffect();
     setTimeout(()=>{
       setRotateEff(false);
     },2000);
@@ -45,7 +47,7 @@ const Header = () => {
   return (
     <>
         <header
-            className="sticky top-0 z-99999 flex items-center bg-[var(--secodary-color)] shadow-[0 1px 2px 0 #3c40434d,0 1px 3px 1px #3c404326] w-full max-w-[500px] h-[55px] py-[0] px-[10px]"
+            className="sticky top-0 z-[99999] flex items-center bg-[var(--secodary-color)] shadow-[0 1px 2px 0 #3c40434d,0 1px 3px 1px #3c404326] w-full max-w-[500px] h-[55px] py-[0] px-[10px]"
         >
             <div className="w-full flex items-center justify-between">
                 <h1 className='text-white'>555 Mix</h1>
@@ -92,31 +94,33 @@ const Header = () => {
                       <X />
                     </InputGroupButton>
                    }
-                  
                 </InputGroup>
               </div>
-              <div className="flex items-center gap-3">
-                <Checkbox id={`all`} className='cursor-pointer data-[state=checked]:bg-[var(--secodary-color)] data-[state=checked]:border-[var(--secodary-color)]'
-                  checked={filterLeaguesValue.length === allLeaguesValue.length}
-                  onCheckedChange={()=>{
-                    if (filterLeaguesValue.length > 0) {
-                      if(filterLeaguesValue.length === allLeaguesValue.length){
-                        setFilterLeaguesValueHandler([]);
-                      }else{
+              <div className="flex items-center justify-between">
+                <span className='text-[var(--soft-main-color)] font-bold'>Leagues {allLeaguesValue?.length}</span>
+                <div className="flex items-center gap-3">
+                  <Label htmlFor={`all`} className='cursor-pointer'>{filterLeaguesValue.length === allLeaguesValue.length ? 'Unchecked All': "Check All"}</Label>
+                  <Checkbox id={`all`} className='cursor-pointer data-[state=checked]:bg-[var(--soft-main-color)] data-[state=checked]:border-[var(--soft-main-color)]'
+                    checked={filterLeaguesValue.length === allLeaguesValue.length}
+                    onCheckedChange={()=>{
+                      if (filterLeaguesValue.length > 0) {
+                        if(filterLeaguesValue.length === allLeaguesValue.length){
+                          setFilterLeaguesValueHandler([]);
+                        }else{
+                          setFilterLeaguesValueHandler(allLeaguesValue);
+                        };
+                      } else {
                         setFilterLeaguesValueHandler(allLeaguesValue);
-                      };
-                    } else {
-                      setFilterLeaguesValueHandler(allLeaguesValue);
-                    }
-                  }}
-                />
-                <Label htmlFor={`all`} className='cursor-pointer font-bold'>Select All</Label>
+                      }
+                    }}
+                  />
+                </div>
               </div>
               {
                 allLeaguesValue?.length > 0 &&
                 allLeaguesValue?.map((league:string,i:number) => 
                   <div className="flex items-center gap-3" key={i}>
-                    <Checkbox id={`${league}_i`} className='cursor-pointer data-[state=checked]:bg-[var(--secodary-color)] data-[state=checked]:border-[var(--secodary-color)]'
+                    <Checkbox id={`${league}_i`} className='cursor-pointer data-[state=checked]:bg-[var(--soft-main-color)] data-[state=checked]:border-[var(--soft-main-color)]'
                       checked={filterLeaguesValue?.includes(league)}
                       onCheckedChange={() => {
                         if (filterLeaguesValue.length > 0) {

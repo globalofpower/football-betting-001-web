@@ -20,7 +20,7 @@ const MatchCard = ({index, count, isHalf, isParlay, match}:any) => {
     clickSongEffect();
     const fixtureObj = {
       fixture: data,
-      match_id: data?.id,
+      match_id: Number(data?.id),
       market: bet_type ,
       team: bet_team,
       match_stage: bet_is_full
@@ -47,13 +47,22 @@ const MatchCard = ({index, count, isHalf, isParlay, match}:any) => {
     };
   };
 
-  const activeHandel = (fixtureId:number,type:string) => {
-     const findFixture = betData?.betLists?.find((fixture:any) => fixture?.match_id === fixtureId);
-     if(findFixture?.team === type){
-       return isParlay ? 'bg-[var(--accent-color)]': 'bg-[var(--soft-main-color)]';
+  const activeHandel = (fixtureId:number,type:string, oddsColor = false) => {
+     const findFixture = betData?.betLists?.find((fixture:any) => fixture?.match_id == fixtureId);
+     if(oddsColor){
+      if(findFixture?.team === type){
+        return 'text-[#ffe93c]';
+      }else{
+        return 'text-[var(--main-color)]';
+      };
      }else{
-       return '';
+      if(findFixture?.team === type){
+        return isParlay ? 'bg-[var(--accent-color)]': 'bg-[var(--soft-main-color)] text-white';
+      }else{
+        return '';
+      };
      }
+     
   };
 
   return (
@@ -85,7 +94,7 @@ const MatchCard = ({index, count, isHalf, isParlay, match}:any) => {
                                         {displayLanguage(data?.host_team_data?.name_mm,data?.host_team_data?.name_en)}
                                         {
                                             data?.odds?.full_time?.odds_team === 'home'?
-                                            <span className={`${isParlay? 'bg-[var(--main-color)] text-white': (data?.is_popular_match ? 'text-[#ffe93c]': 'text-[var(--main-color)]')} font-medium min-h-[25px] min-w-[45px] whitespace-nowrap px-[6px] py-0 text-[13px] text-center leading-[25px] block rounded-[8px] select-none ml-[5px]`}>
+                                            <span className={`${isParlay? 'bg-[var(--main-color)] text-white': (data?.is_popular_match ? 'text-[#ffe93c]': activeHandel(data?.id, betType('home','half_home'), true))} font-medium min-h-[25px] min-w-[45px] whitespace-nowrap px-[6px] py-0 text-[13px] text-center leading-[25px] block rounded-[8px] select-none ml-[5px]`}>
                                                 {replaceZeotoQqual(data?.odds?.full_time?.hdp_mm_odds)}
                                             </span>:''
                                         }
@@ -97,7 +106,7 @@ const MatchCard = ({index, count, isHalf, isParlay, match}:any) => {
                                         {displayLanguage(data?.guest_team_data?.name_mm,data?.guest_team_data?.name_en)}
                                         {
                                             data?.odds?.full_time?.odds_team === 'away'?
-                                            <span className={`${isParlay? 'bg-[var(--main-color)] text-white': (data?.is_popular_match ? 'text-[#ffe93c]': 'text-[var(--main-color)]')} font-medium min-h-[25px] min-w-[45px] whitespace-nowrap px-[6px] py-0 text-[13px] text-center leading-[25px] block rounded-[8px] select-none ml-[5px]`}>
+                                            <span className={`${isParlay? 'bg-[var(--main-color)] text-white': (data?.is_popular_match ? 'text-[#ffe93c]': activeHandel(data?.id, betType('away','half_away'), true))} font-medium min-h-[25px] min-w-[45px] whitespace-nowrap px-[6px] py-0 text-[13px] text-center leading-[25px] block rounded-[8px] select-none ml-[5px]`}>
                                                 {replaceZeotoQqual(data?.odds?.full_time?.hdp_mm_odds)}
                                             </span>:''
                                         }

@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input"
 import { useToaster } from "@/hooks/useToaster";
 import { langChange } from "@/lang"
 import { useCombineStore } from "@/store";
-import { amountFormat } from "@/utils/Helper";
+import { amountFormat, clickSongEffect } from "@/utils/Helper";
 import { useLocation, useNavigate } from "react-router";
 
 const Footer = () => {
@@ -14,13 +14,14 @@ const Footer = () => {
   const navigate = useNavigate();
 
   const amountHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
-     let value: any = e.target.value;
-     if(!isNaN(value)){
+    let value: any = e.target.value;
+    if(!isNaN(value)){
         setAmountValueHandler(value);
-     };
+    };
   };
 
   const betConfirmHandler = () => {
+    clickSongEffect();
     if(pathname === '/parlay' && betData?.betLists?.length < 2){
         return showToast("အနည်းဆုံး(2)မောင်းမှ စတင်လောင်းပေးပါ။", "error");
     };
@@ -69,7 +70,7 @@ const Footer = () => {
         };
     };
     navigate(`${pathname}/bet-confirm`);
-  }
+  };
 
   return (
      <footer
@@ -81,6 +82,7 @@ const Footer = () => {
             right-0
             bg-[var(--secodary-color)] z-[99]
             p-3
+            z-[99999]
         "
     >
         <div className="flex items-center justify-center h-full gap-4">

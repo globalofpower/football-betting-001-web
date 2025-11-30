@@ -235,7 +235,7 @@ const useFootballMatches = ({isHalf, isParlay}:{isHalf: boolean, isParlay: boole
     setAllLeaguesValueHandler(Object.keys(groupDataByLeague(events, true)));
   }, [events, filterLeaguesValue, sortByTypeValue, searchMatchValue]);
 
-  return { loading:false, matches: filterData };
+  return { loading: fixturesQuery?.loading , matches: filterData };
 };
 
 export default useFootballMatches
