@@ -1,6 +1,6 @@
 import PageTransition from "./PageTransition";
 import Footer from "./Footer";
-import { Outlet, useLocation, useNavigate} from "react-router";
+import { Outlet, useLocation, useNavigate, useParams} from "react-router";
 import Header from "./Header";
 import { useEffect, useRef, useState } from "react";
 import { FetchTaxPercent } from "@/service/graphql/queryService";
@@ -12,15 +12,16 @@ const MainLayout = () => {
     const {pathname} = useLocation();
     const footballPages = ['/body','/parlay',"/1st-half"];
     const [headerLabel,setHeaderLabel] = useState("");
+    const {id} = useParams();
 
     useEffect(()=>{
         switch(pathname){
             case '/vouchers':
                 setHeaderLabel(langChange.histories);
                 break;
-            // case `/vouchers/${id}`:
-            //     setHeaderLabel(langChange.history + ' ' + '#' + id);
-            //     break;
+            case `/vouchers/${id}`:
+                setHeaderLabel(langChange.history + ' ' + '#' + id);
+                break;
             default:
                 setHeaderLabel('');
                 break;

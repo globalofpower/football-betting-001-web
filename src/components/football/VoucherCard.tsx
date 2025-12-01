@@ -20,7 +20,7 @@ export default function BetHistoryCard({ voucher }: any) {
     const navigate = useNavigate();
 
     return (
-        <Card onClick={() => navigate(`/voucher/${voucher.id}`)} className="bg-white py-3  border border-white/10 shadow-sm rounded-md mb-3">
+        <Card onClick={() => navigate(`/vouchers/${voucher.id}`)} className="bg-white py-3  border border-white/10 shadow-sm rounded-md mb-3">
             <CardContent className="px-3">
                 <div className="space-y-1 text-[13px]">
                     <div className="flex justify-end">

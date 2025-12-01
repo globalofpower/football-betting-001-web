@@ -3,6 +3,7 @@ import {
     BetConfirmPage,
     BodyPage,
     ParlayPage,
+    VoucherPage,
     VouchersPage,
 } from "./routes";
 import MainLayout from "@/layout/MainLayout";
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
             { path: '/parlay', Component: ParlayPage },
             { path: ':type/bet-confirm', Component: BetConfirmPage },
             { path: '/vouchers', Component: VouchersPage },
+            { path: "/vouchers/:id", Component: VoucherPage },
         ],
     },
 ]);
