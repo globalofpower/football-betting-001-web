@@ -12,7 +12,7 @@ const SubHeader = ({headerLabel}:any) => {
 
     return (
         <header
-            className="sticky top-0 z-99999 flex items-center bg-[var(--secondary-color)] shadow-[0 1px 2px 0 #3c40434d,0 1px 3px 1px #3c404326] w-full max-w-[480px] h-[55px] py-[0] px-[10px]"
+            className="sticky top-0 z-99999 flex items-center bg-[var(--secondary-color)] shadow-[0 1px 2px 0 #3c40434d,0 1px 3px 1px #3c404326] w-full max-w-[500px] h-[55px] py-[0] px-[10px]"
         >
             <div className="w-full flex items-center justify-between">
                 <button
