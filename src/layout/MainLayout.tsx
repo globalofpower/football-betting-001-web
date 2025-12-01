@@ -2,15 +2,32 @@ import PageTransition from "./PageTransition";
 import Footer from "./Footer";
 import { Outlet, useLocation, useNavigate} from "react-router";
 import Header from "./Header";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FetchTaxPercent } from "@/service/graphql/queryService";
 import { encodeAuth } from "@/utils/Helper";
+import SubHeader from "./SubHeader";
+import { langChange } from "@/lang";
 
 const MainLayout = () => {
     const {pathname} = useLocation();
     const footballPages = ['/body','/parlay',"/1st-half"];
+    const [headerLabel,setHeaderLabel] = useState("");
 
-     const [
+    useEffect(()=>{
+        switch(pathname){
+            case '/vouchers':
+                setHeaderLabel(langChange.histories);
+                break;
+            // case `/vouchers/${id}`:
+            //     setHeaderLabel(langChange.history + ' ' + '#' + id);
+            //     break;
+            default:
+                setHeaderLabel('');
+                break;
+        };
+    },[pathname]);
+
+    const [
         fetchTaxSetting,{
         data: taxPercentData,
     }]:any = FetchTaxPercent({
@@ -39,7 +56,7 @@ const MainLayout = () => {
             <section className={`${footballPages?.includes(pathname) ? 'pb-[70px]':''} relative z-2 w-full max-w-[500px] h-full mx-auto overflow-hidden bg-[#fafafa] shadow-md`}>
                 <div className="h-full overflow-auto">
                     {
-                        footballPages?.includes(pathname) ? <Header /> : ''
+                        footballPages?.includes(pathname) ? <Header /> : <SubHeader headerLabel={headerLabel} /> 
                     }
                     <PageTransition>
                         <Outlet />

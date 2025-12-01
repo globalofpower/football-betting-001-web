@@ -18,7 +18,7 @@ const CustomFormLayout:React.FC<CustomFormLayoutProps> = ({ title, subTitle, chi
             />}
             {/* 384 */}
             <Card className="relative z-10 w-[90%] max-w-sm
-                            border border-[var(--secodary-color)]/20 bg-white 
+                            border border-[var(--secondary-color)]/20 bg-white 
                             rounded-2xl shadow-lg mt-5 mx-auto">
                 <CardContent className="p-6">
                 {(title || subTitle) && <div className="mb-6">

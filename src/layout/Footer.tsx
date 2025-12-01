@@ -80,7 +80,7 @@ const Footer = () => {
             h-[70px]
             left-0
             right-0
-            bg-[var(--secodary-color)] z-[99]
+            bg-[var(--secondary-color)] z-[99]
             p-3
             z-[99999]
         "

@@ -17,7 +17,7 @@ const Parlay = () => {
             <MatchCard key={i} index={i} count={matches[league]?.length} isHalf={false} isParlay={true} match={match} />
           ))
           :
-          <NoData text='ပွဲများမရှိပါ' loading={loading} />
+          <NoData text='ပွဲစဉ်များ မရှိသေးပါ' loading={loading} />
         }
     </div>
   )

@@ -47,7 +47,7 @@ const Header = () => {
   return (
     <>
         <header
-            className="sticky top-0 z-[99999] flex items-center bg-[var(--secodary-color)] shadow-[0 1px 2px 0 #3c40434d,0 1px 3px 1px #3c404326] w-full max-w-[500px] h-[55px] py-[0] px-[10px]"
+            className="sticky top-0 z-[99999] flex items-center bg-[var(--secondary-color)] shadow-[0 1px 2px 0 #3c40434d,0 1px 3px 1px #3c404326] w-full max-w-[500px] h-[55px] py-[0] px-[10px]"
         >
             <div className="w-full flex items-center justify-between">
                 <h1 className='text-white'>555 Mix</h1>
@@ -75,11 +75,11 @@ const Header = () => {
               <div className='border-b border-b-[#c7c7c7] pb-4 pt-3'>
                 <RadioGroup className='flex mb-4' defaultValue={sortByTypeValue} onValueChange={(value) => setSortByTypeValueHandler(value)}>
                   <div className="flex items-center gap-3">
-                    <RadioGroupItem className="cursor-pointer custom-radio-bullet data-[state=checked]:border-[var(--secodary-color)] data-[state=checked]:bg-[var(--secodary-color)]" value="time" id="time" />
+                    <RadioGroupItem className="cursor-pointer custom-radio-bullet data-[state=checked]:border-[var(--secondary-color)] data-[state=checked]:bg-[var(--secondary-color)]" value="time" id="time" />
                     <Label className='cursor-pointer font-bold' htmlFor="time">Sort By Time</Label>
                   </div>
                   <div className="flex items-center gap-3">
-                    <RadioGroupItem className='cursor-pointer custom-radio-bullet data-[state=checked]:border-[var(--secodary-color)] data-[state=checked]:bg-[var(--secodary-color)]' value="league" id="league" />
+                    <RadioGroupItem className='cursor-pointer custom-radio-bullet data-[state=checked]:border-[var(--secondary-color)] data-[state=checked]:bg-[var(--secondary-color)]' value="league" id="league" />
                     <Label htmlFor="league" className='cursor-pointer font-bold'>Sort By League</Label>
                   </div>
                 </RadioGroup>

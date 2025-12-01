@@ -119,9 +119,9 @@ export const formatDate = (date:Date | undefined) => {
 
 export const formatDateTime = (date:Date | undefined, time_format:"12" | "24" = "24") => {
   if(time_format === "24") {
-    return dayjs(date).format('YYYY-MM-DD HH:mm:ss');
+    return dayjs(date).format('DD-MM-YYYY HH:mm:ss');
   }else {
-    return dayjs(date).format('YYYY-MM-DD hh:mm:ss A');
+    return dayjs(date).format('DD-MM-YYYY hh:mm:ss A');
   }
 }
 

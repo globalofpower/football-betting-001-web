@@ -7,6 +7,7 @@ import { searchMatchSlice } from './slices/searchMatchSlice';
 import { sortByTypeSlice } from './slices/sortByTypeSlice';
 import { refetchSlice } from './slices/refetchSlice';
 import { betSlice } from './slices/betSlice';
+import { dateSlice } from './slices/dateSlice';
 
 
 export const useCombineStore = create<any>()(
@@ -19,5 +20,6 @@ export const useCombineStore = create<any>()(
         ...sortByTypeSlice(set),
         ...refetchSlice(set),
         ...betSlice(set),
+        ...dateSlice(set),
       }),
 );

@@ -9,7 +9,7 @@ const useFootballBetConfirm = () => {
   const {type} = useParams();
   const { betData,setAmountValueHandler, setBetListsValueHandler } = useCombineStore();
   const { isPending: isLoading, mutate: bet } = FOOTBALL_BET_QUERY();
-  const { authInfo, setAuthInfoValueHandler } = useCombineStore();
+  const { authInfo } = useCombineStore();
   const { showToast } = useToaster();
   const navigate = useNavigate();
   const getTax = localStorage.getItem('tax');

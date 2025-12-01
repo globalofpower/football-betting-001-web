@@ -289,7 +289,6 @@ export const GET_BET_LISTS_DATA = gql`
               name_mm
               code
               cc
-              __typename @client
             }
             guest_team_data {
               id
@@ -297,22 +296,17 @@ export const GET_BET_LISTS_DATA = gql`
               name_mm
               code
               cc
-              __typename @client
             }
             league_data {
               id
               name_en
               name_mm
               cc
-              __typename @client
             }
             fixture_start_time
             fixture_timestamp
-            __typename @client
           }
-          __typename @client
         }
-        __typename @client
       }
       meta {
         total

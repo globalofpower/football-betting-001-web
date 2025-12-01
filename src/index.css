@@ -43,7 +43,7 @@
 
 :root {
   --main-color: #009747;
-  --secodary-color: #303030;
+  --secondary-color: #303030;
   --soft-main-color: #4caf50;
   --main-soft-color: #deedff;
   --accent-color: #ff6e00;
@@ -194,13 +194,13 @@ select:-webkit-autofill {
   -webkit-text-fill-color: var(--font-color) !important;
   caret-color: var(--font-color) !important;
   -webkit-box-shadow:
-    0 0 0 1000px color-mix(in oklab, var(--secodary-color) 7%, white) inset,
-    0 0 0 1px color-mix(in oklab, var(--secodary-color) 25%, transparent) inset !important;
+    0 0 0 1000px color-mix(in oklab, var(--secondary-color) 7%, white) inset,
+    0 0 0 1px color-mix(in oklab, var(--secondary-color) 25%, transparent) inset !important;
           box-shadow:
-    0 0 0 1000px color-mix(in oklab, var(--secodary-color) 7%, white) inset,
-    0 0 0 1px color-mix(in oklab, var(--secodary-color) 25%, transparent) inset !important;
+    0 0 0 1000px color-mix(in oklab, var(--secondary-color) 7%, white) inset,
+    0 0 0 1px color-mix(in oklab, var(--secondary-color) 25%, transparent) inset !important;
 
-  border: 1px solid color-mix(in oklab, var(--secodary-color) 25%, white) !important;
+  border: 1px solid color-mix(in oklab, var(--secondary-color) 25%, white) !important;
 }
 
 input::selection,
