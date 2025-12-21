@@ -16,6 +16,8 @@ const MatchCard = ({index, count, isHalf, isParlay, match}:any) => {
     };
   };
 
+  const typeObjKey = isHalf ? "first_half" : "full_time";
+
   const selectHandler = (data:any, bet_team:string, bet_type:string, bet_is_full:string) => {
     clickSongEffect();
     const fixtureObj = {
@@ -61,8 +63,7 @@ const MatchCard = ({index, count, isHalf, isParlay, match}:any) => {
       }else{
         return '';
       };
-     }
-     
+     };
   };
 
   return (
@@ -87,37 +88,37 @@ const MatchCard = ({index, count, isHalf, isParlay, match}:any) => {
                         <div className="flex items-center justify-center">
                             <div style={{width: '100%'}}>
                                 <div className="flex items-center justify-between">
-                                    <div onClick={()=> selectHandler(data,betType('home','half_home'),"body",betType('full_time','first_half'))} className={`${activeHandel(data?.id, betType('home','half_home'))} ${isParlay ? 'rounded-[6px] mr-[3px] mb-[3px] border-r-0 border-b-0':'rounded-0 mr-0 mb-0 border-r-[0.1px] border-r-[#a0a0a0] border-b-[0.1px] border-b-[#a0a0a0]'} ${(!isParlay && data?.odds?.full_time?.odds_team === 'home') ? 'justify-between': 'justify-center'} ${(data?.is_popular_match || isParlay) ? 'bg-[#616161] text-white': 'bg-[#e4e4e4]'} w-full leading-[13px] min-h-[40px] relative break-all text-center text-[13px] cursor-pointer select-none flex items-center`}>
+                                    <div onClick={()=> selectHandler(data,'home',"body",betType('full_time','first_half'))} className={`${activeHandel(data?.id, 'home')} ${isParlay ? 'rounded-[6px] mr-[3px] mb-[3px] border-r-0 border-b-0':'rounded-0 mr-0 mb-0 border-r-[0.1px] border-r-[#a0a0a0] border-b-[0.1px] border-b-[#a0a0a0]'} ${(!isParlay && data?.odds?.[typeObjKey]?.odds_team === 'home') ? 'justify-between': 'justify-center'} ${(data?.is_popular_match || isParlay) ? 'bg-[#616161] text-white': 'bg-[#e4e4e4]'} w-full leading-[13px] min-h-[40px] relative break-all text-center text-[13px] cursor-pointer select-none flex items-center`}>
                                         {
-                                            (!isParlay && data?.odds?.full_time?.odds_team === 'home') ? <div />: ""
+                                            (!isParlay && data?.odds?.[typeObjKey]?.odds_team === 'home') ? <div />: ""
                                         }
                                         {displayLanguage(data?.host_team_data?.name_mm,data?.host_team_data?.name_en)}
                                         {
-                                            data?.odds?.full_time?.odds_team === 'home'?
-                                            <span className={`${isParlay? 'bg-[var(--main-color)] text-white': (data?.is_popular_match ? 'text-[#ffe93c]': activeHandel(data?.id, betType('home','half_home'), true))} font-medium min-h-[25px] min-w-[45px] whitespace-nowrap px-[6px] py-0 text-[13px] text-center leading-[25px] block rounded-[8px] select-none ml-[5px]`}>
-                                                {replaceZeotoQqual(data?.odds?.full_time?.hdp_mm_odds)}
+                                            data?.odds?.[typeObjKey]?.odds_team === 'home'?
+                                            <span className={`${isParlay? 'bg-[var(--main-color)] text-white': (data?.is_popular_match ? 'text-[#ffe93c]': activeHandel(data?.id, 'home', true))} font-medium min-h-[25px] min-w-[45px] whitespace-nowrap px-[6px] py-0 text-[13px] text-center leading-[25px] block rounded-[8px] select-none ml-[5px]`}>
+                                                {replaceZeotoQqual(data?.odds?.[typeObjKey]?.hdp_mm_odds)}
                                             </span>:''
                                         }
                                     </div>
-                                    <div onClick={()=> selectHandler(data,betType('away','half_away'),"body",betType('full_time','first_half'))} className={`${activeHandel(data?.id, betType('away','half_away'))} ${isParlay ? 'rounded-[6px] mb-[3px] border-b-0':'rounded-0 mb-0 border-b-[0.1px] border-b-[#a0a0a0]'} ${(!isParlay && data?.odds?.full_time?.odds_team === 'away') ? 'justify-between': 'justify-center'} ${(data?.is_popular_match || isParlay) ? 'bg-[#616161] text-white': 'bg-[#e4e4e4]'} ml-0 w-full leading-[13px] min-h-[40px] relative break-all text-center text-[13px] cursor-pointer select-none flex items-center`}>
+                                    <div onClick={()=> selectHandler(data,'away',"body",betType('full_time','first_half'))} className={`${activeHandel(data?.id, 'away')} ${isParlay ? 'rounded-[6px] mb-[3px] border-b-0':'rounded-0 mb-0 border-b-[0.1px] border-b-[#a0a0a0]'} ${(!isParlay && data?.odds?.[typeObjKey]?.odds_team === 'away') ? 'justify-between': 'justify-center'} ${(data?.is_popular_match || isParlay) ? 'bg-[#616161] text-white': 'bg-[#e4e4e4]'} ml-0 w-full leading-[13px] min-h-[40px] relative break-all text-center text-[13px] cursor-pointer select-none flex items-center`}>
                                         {
-                                            (!isParlay && data?.odds?.full_time?.odds_team === 'away') ? <div />: ""
+                                            (!isParlay && data?.odds?.[typeObjKey]?.odds_team === 'away') ? <div />: ""
                                         }
                                         {displayLanguage(data?.guest_team_data?.name_mm,data?.guest_team_data?.name_en)}
                                         {
-                                            data?.odds?.full_time?.odds_team === 'away'?
-                                            <span className={`${isParlay? 'bg-[var(--main-color)] text-white': (data?.is_popular_match ? 'text-[#ffe93c]': activeHandel(data?.id, betType('away','half_away'), true))} font-medium min-h-[25px] min-w-[45px] whitespace-nowrap px-[6px] py-0 text-[13px] text-center leading-[25px] block rounded-[8px] select-none ml-[5px]`}>
-                                                {replaceZeotoQqual(data?.odds?.full_time?.hdp_mm_odds)}
+                                            data?.odds?.[typeObjKey]?.odds_team === 'away'?
+                                            <span className={`${isParlay? 'bg-[var(--main-color)] text-white': (data?.is_popular_match ? 'text-[#ffe93c]': activeHandel(data?.id, 'away', true))} font-medium min-h-[25px] min-w-[45px] whitespace-nowrap px-[6px] py-0 text-[13px] text-center leading-[25px] block rounded-[8px] select-none ml-[5px]`}>
+                                                {replaceZeotoQqual(data?.odds?.[typeObjKey]?.hdp_mm_odds)}
                                             </span>:''
                                         }
                                     </div>
                                 </div>
                                 <div className="flex items-center justify-between">
-                                    <div onClick={()=> selectHandler(data,betType('over','half_over'),"total",betType('full_time','first_half'))} className={`${activeHandel(data?.id, betType('over','half_over'))} ${isParlay ? 'rounded-[6px]':'rounded-0'} ${(data?.is_popular_match || isParlay) ? 'bg-[#616161] text-white': 'bg-[#e4e4e4]'} w-full min-h-[40px] text-[13px] text-center leading-[40px] cursor-pointer`}>Over</div>
+                                    <div onClick={()=> selectHandler(data,'over',"total",betType('full_time','first_half'))} className={`${activeHandel(data?.id, 'over')} ${isParlay ? 'rounded-[6px]':'rounded-0'} ${(data?.is_popular_match || isParlay) ? 'bg-[#616161] text-white': 'bg-[#e4e4e4]'} w-full min-h-[40px] text-[13px] text-center leading-[40px] cursor-pointer`}>Over</div>
                                     <div className="min-h-[40px] select-none" >
-                                        <div className={`${isParlay ? 'bg-[var(--main-color)] text-white border-x-0': (data?.is_popular_match? 'bg-[#616161] border-x-[0.1px] border-x-[#a0a0a0] text-[#ffe93c]': 'bg-[#e4e4e4] border-x-[0.1px] border-x-[#a0a0a0] text-[var(--main-color)]')} font-medium w-full h-full text-center leading-[40px] text-[13px] whitespace-nowrap py-0 px-[10px]`}>{replaceZeotoQqual(data?.odds?.full_time?.ou_mm_odds)}</div>
+                                        <div className={`${isParlay ? 'bg-[var(--main-color)] text-white border-x-0': (data?.is_popular_match? 'bg-[#616161] border-x-[0.1px] border-x-[#a0a0a0] text-[#ffe93c]': 'bg-[#e4e4e4] border-x-[0.1px] border-x-[#a0a0a0] text-[var(--main-color)]')} font-medium w-full h-full text-center leading-[40px] text-[13px] whitespace-nowrap py-0 px-[10px]`}>{replaceZeotoQqual(data?.odds?.[typeObjKey]?.ou_mm_odds)}</div>
                                     </div>
-                                    <div onClick={()=> selectHandler(data,betType('under','half_under'),"total",betType('full_time','first_half'))} className={`${activeHandel(data?.id, betType('under','half_under'))} ${isParlay ? 'rounded-[6px]':'rounded-0'} ${(data?.is_popular_match || isParlay) ? 'bg-[#616161] text-white': 'bg-[#e4e4e4]'} w-full min-h-[40px] text-[13px] text-center leading-[40px] cursor-pointer`}>Under</div>
+                                    <div onClick={()=> selectHandler(data,'under',"total",betType('full_time','first_half'))} className={`${activeHandel(data?.id, 'under')} ${isParlay ? 'rounded-[6px]':'rounded-0'} ${(data?.is_popular_match || isParlay) ? 'bg-[#616161] text-white': 'bg-[#e4e4e4]'} w-full min-h-[40px] text-[13px] text-center leading-[40px] cursor-pointer`}>Under</div>
                                 </div>
                             </div>
                         </div>

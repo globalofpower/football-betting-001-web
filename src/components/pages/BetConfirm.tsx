@@ -9,8 +9,8 @@ import { createPortal } from 'react-dom';
 const BetConfirm = () => {
   const navigate = useNavigate();
   const {calculateEstimateAmount, betSubmitHandel, loading, betData ,displayLanguage} = useFootballBetConfirm();
-  // const [isEditAmount,setIsEditAmount] = useState(false);
-
+  const typeObjKey = location.pathname.includes('1st-half') ? "first_half" : "full_time";
+  
   return (
     <>
       <div className="w-full bg-white overflow-hidden">
@@ -24,7 +24,6 @@ const BetConfirm = () => {
                 <th className="py-2 text-[14px] font-medium">ရွေးထားသောပွဲများ</th>
               </tr>
             </thead>
-
             <tbody>
               {betData?.betLists?.map((list:any, index:any) => (
                 <tr
@@ -40,10 +39,10 @@ const BetConfirm = () => {
                       {displayLanguage(list?.fixture?.host_team_data?.name_mm , list?.fixture?.host_team_data?.name_en)}
                       {
                           list?.market === "body" &&
-                          list?.match_stage === "full_time" &&
-                          list?.fixture?.odds?.full_time?.odds_team === 'home'?
+                          list?.match_stage === typeObjKey &&
+                          list?.fixture?.odds?.[typeObjKey]?.odds_team === 'home'?
                           <div className="mt-1 text-blue-500 whitespace-nowrap">( {
-                            replaceZeotoQqual(list?.fixture?.odds?.full_time?.hdp_mm_odds)
+                            replaceZeotoQqual(list?.fixture?.odds?.[typeObjKey]?.hdp_mm_odds)
                           } )</div>:
                           ''
                       }
@@ -52,18 +51,18 @@ const BetConfirm = () => {
                       <div className="text-gray-500">Vs</div>
                       {
                         list?.market === "total" &&
-                        list?.match_stage === "full_time" &&
-                        <div className="mt-1 text-blue-500 whitespace-nowrap">( {replaceZeotoQqual(list?.fixture?.odds?.full_time?.ou_mm_odds)} )</div>
+                        list?.match_stage === typeObjKey &&
+                        <div className="mt-1 text-blue-500 whitespace-nowrap">( {replaceZeotoQqual(list?.fixture?.odds?.[typeObjKey]?.ou_mm_odds)} )</div>
                       }
                     </div>
                     <div className="leading-tigh flex items-center justify-between">
                       {displayLanguage(list?.fixture?.guest_team_data?.name_mm , list?.fixture?.guest_team_data?.name_en)}
                       {
                           list?.market === "body" &&
-                          list?.match_stage === "full_time" &&
-                          list?.fixture?.odds?.full_time?.odds_team === 'away'?
+                          list?.match_stage === typeObjKey &&
+                          list?.fixture?.odds?.[typeObjKey]?.odds_team === 'away'?
                           <div className="mt-1 text-blue-500 whitespace-nowrap">( {
-                            replaceZeotoQqual(list?.fixture?.odds?.full_time?.hdp_mm_odds)
+                            replaceZeotoQqual(list?.fixture?.odds?.[typeObjKey]?.hdp_mm_odds)
                           } )</div>:
                           ''
                       }

@@ -198,25 +198,42 @@ const useFootballMatches = ({isHalf, isParlay}:{isHalf: boolean, isParlay: boole
 
     const temp:any = [];
     data.forEach((el:any) => {
+
       if (el.id + "" === socketOdds.match_id + "") {
-        let clone_obj = { ...el };
-        clone_obj = {
-          ...clone_obj,
-          odds: {
-            ...clone_obj.odds,
-            full_time: {
-              ...clone_obj.odds.full_time,
-              hdp_mm_odds: socketOdds?.data?.hdp_mm_odds || clone_obj?.odds.full_time?.hdp_mm_odds,
-              ou_mm_odds: socketOdds?.data?.ou_mm_odds || clone_obj?.odds.full_time?.ou_mm_odds,
-              odd: socketOdds?.data?.odd || clone_obj?.odds?.full_time?.odd,
-              even: socketOdds?.data?.even || clone_obj?.odds?.full_time?.even,
-              one: socketOdds?.data?.one || clone_obj?.odds?.full_time?.one,
-              x: socketOdds?.data?.x || clone_obj?.odds?.full_time?.x,
-              two: socketOdds?.data?.two || clone_obj?.odds?.full_time?.two,
+        if(isHalf){
+          let clone_obj = { ...el };
+          clone_obj = {
+            ...clone_obj,
+            odds: {
+              ...clone_obj.odds,
+              first_half: {
+                ...clone_obj.odds.first_half,
+                hdp_mm_odds: socketOdds?.data?.hdp_mm_odds || clone_obj?.odds.first_half?.hdp_mm_odds,
+                ou_mm_odds: socketOdds?.data?.ou_mm_odds || clone_obj?.odds.first_half?.ou_mm_odds,
+              },
             },
-          },
+          };
+          temp.push(clone_obj);
+        }else{
+          let clone_obj = { ...el };
+          clone_obj = {
+            ...clone_obj,
+            odds: {
+              ...clone_obj.odds,
+              full_time: {
+                ...clone_obj.odds.full_time,
+                hdp_mm_odds: socketOdds?.data?.hdp_mm_odds || clone_obj?.odds.full_time?.hdp_mm_odds,
+                ou_mm_odds: socketOdds?.data?.ou_mm_odds || clone_obj?.odds.full_time?.ou_mm_odds,
+                odd: socketOdds?.data?.odd || clone_obj?.odds?.full_time?.odd,
+                even: socketOdds?.data?.even || clone_obj?.odds?.full_time?.even,
+                one: socketOdds?.data?.one || clone_obj?.odds?.full_time?.one,
+                x: socketOdds?.data?.x || clone_obj?.odds?.full_time?.x,
+                two: socketOdds?.data?.two || clone_obj?.odds?.full_time?.two,
+              },
+            },
+          };
+          temp.push(clone_obj);
         };
-        temp.push(clone_obj);
       } else {
         temp.push(el);
       }

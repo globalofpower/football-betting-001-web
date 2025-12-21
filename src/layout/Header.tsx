@@ -26,11 +26,11 @@ const Header = () => {
     if(pathname === "/body"){
       return langChange.body
     };
-    if(pathname === "/parlay"){
-      return langChange.parlay
-    };
     if(pathname === "/1st-half"){
       return langChange.first_half
+    };
+    if(pathname === "/parlay"){
+      return langChange.parlay
     };
   };
 

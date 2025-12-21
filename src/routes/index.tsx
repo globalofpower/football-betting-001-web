@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import { 
     BetConfirmPage,
     BodyPage,
+    FirstHalfPage,
     ParlayPage,
     VoucherPage,
     VouchersPage,
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
         // loader: authProtected,       
         children: [
             { path: '/body', Component: BodyPage },
+            { path: '/1st-half', Component: FirstHalfPage },
             { path: '/parlay', Component: ParlayPage },
             { path: ':type/bet-confirm', Component: BetConfirmPage },
             { path: '/vouchers', Component: VouchersPage },
