@@ -29,6 +29,9 @@ const Header = () => {
     if(pathname === "/1st-half"){
       return langChange.first_half
     };
+    if(pathname === "/even-odd"){
+      return langChange.even_odd
+    };
     if(pathname === "/parlay"){
       return langChange.parlay
     };

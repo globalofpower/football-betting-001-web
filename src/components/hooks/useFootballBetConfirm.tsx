@@ -54,6 +54,7 @@ const useFootballBetConfirm = () => {
       amount: Number(betData?.amount),
       matches: removeFixture,
     };
+    
     bet({data,type},
       {
         onSuccess: (res) => {

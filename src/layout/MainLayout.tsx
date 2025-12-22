@@ -10,7 +10,7 @@ import { langChange } from "@/lang";
 
 const MainLayout = () => {
     const {pathname} = useLocation();
-    const footballPages = ['/body','/parlay',"/1st-half"];
+    const footballPages = ['/body','/parlay',"/1st-half","/even-odd"];
     const [headerLabel,setHeaderLabel] = useState("");
     const {id} = useParams();
 
